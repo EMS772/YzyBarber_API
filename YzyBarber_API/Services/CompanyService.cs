@@ -78,15 +78,7 @@ namespace YzyBarber_API.Services
 
         public CompanyDTO UpdateCompany(int Id, CreateCompanyDTO companyDTO)
         {
-            var exists = _dbcontext.Companies.Any(c =>
-                c.CompanyName == companyDTO.CompanyName ||
-                c.CompanyEmail == companyDTO.CompanyEmail ||
-                c.CompanyPhone == companyDTO.CompanyPhone);
 
-            if (exists)
-            {
-                throw new ArgumentException("A company with the same name, email, or phone number already exists.");
-            }
 
             var company = _dbcontext.Companies.FirstOrDefault(c => c.CompanyId == Id);
 

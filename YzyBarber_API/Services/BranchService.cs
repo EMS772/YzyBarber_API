@@ -77,14 +77,7 @@ namespace YzyBarber_API.Services
             {
                 throw new ArgumentException("Branch not found");
             }
-            var exists = _dbcontext.Branches.Any(b =>
-            b.BranchName == branchDTO.BranchName &&
-            b.BranchPhone == branchDTO.BranchPhone);
 
-            if (exists)
-            {
-                throw new ArgumentException("There is already a branch with the same name and phone number.");
-            }
 
             branch.CompanyId = branchDTO.CompanyId;
             branch.BranchName = branchDTO.BranchName;

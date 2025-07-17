@@ -67,14 +67,6 @@ namespace YzyBarber_API.Services
 
         public ClientDTO UpdateClient(int Id, CreateClientDTO Cliente)
         {
-            var exists = _dbcontext.Clients.Any(c =>
-            c.Email == Cliente.Email ||
-            c.Phone == Cliente.Phone);
-
-            if (exists)
-            {
-                throw new ArgumentException("There is already a customer with the same email or phone number.");
-            }
             var client = _dbcontext.Clients.FirstOrDefault(c => c.ClientId == Id);
             if (client == null)
             {

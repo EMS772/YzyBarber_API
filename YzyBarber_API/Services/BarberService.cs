@@ -65,14 +65,7 @@ namespace YzyBarber_API.Services
 
         public BarberDTO UpdateBarber(int Id, CreateBarberDTO Barber)
         {
-            var exists = _dbcontext.Barbers.Any(b =>
-            b.BarberName == Barber.BarberName &&
-            b.Phone == Barber.Phone);
 
-            if (exists)
-            {
-                throw new ArgumentException("There is already a barber with the same name and phone number.");
-            }
 
             var barber = _dbcontext.Barbers.FirstOrDefault(b => b.BarberId == Id);
             if (barber == null)

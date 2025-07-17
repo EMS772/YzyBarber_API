@@ -79,15 +79,6 @@ namespace YzyBarber_API.Services
 
         public AppointmentDTO UpdateAppointment(int id, CreateAppointmentDTO dto)
         {
-            var exists = _dbcontext.Appointments.Any(a =>
-            a.ClientId == dto.ClientId &&
-            a.Date == dto.Date &&
-            a.Schedule == dto.Schedule);
-
-            if (exists)
-            {
-                throw new ArgumentException("This client already has an appointment on that date and time.");
-            }
 
             var appointment = _dbcontext.Appointments.FirstOrDefault(a => a.AppointmentId == id);
             if (appointment == null)
